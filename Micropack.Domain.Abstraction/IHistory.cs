@@ -6,6 +6,6 @@ namespace Micropack.Domain.Abstraction
     {
         DateTimeOffset CreatedOn { get; set; }
 
-        DateTimeOffset? ModifiedOn { get; set; }
+        DateTimeOffset? LastModifiedOn { get; set; }
     }
 }
