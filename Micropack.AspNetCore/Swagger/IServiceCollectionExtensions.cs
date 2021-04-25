@@ -34,15 +34,17 @@ namespace Micropack.AspNetCore.Swagger
             {
                 #region Add Jwt Authentication
 
-                options.DescribeAllEnumsAsStrings();
-                //options.DescribeAllParametersInCamelCase();
-                //options.DescribeStringEnumsInCamelCase()
-                //options.UseReferencedDefinitionsForEnums()
-                //options.IgnoreObsoleteActions();
+                       //In Swashbuckle.AspNetCore.SwaggerGen - 5.0.0 - rc3, the DescribeAllEnumsAsStrings method is marked obsolete and to - be - deprecated because it will automatically be applied if that convention is present in the serializer. However, the functionality is only present if Newtonsoft.Json is used as the serializer.If using the new default Json serializer in .NET Core 3, the StringEnumConverter is not respected.
+                       //options.DescribeAllEnumsAsStrings();
 
-                //options.IgnoreObsoleteProperties();
-                //Add Lockout icon on top of swagger ui page to authenticate
-                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                       //options.DescribeAllParametersInCamelCase();
+                       //options.DescribeStringEnumsInCamelCase()
+                       //options.UseReferencedDefinitionsForEnums()
+                       //options.IgnoreObsoleteActions();
+
+                       //options.IgnoreObsoleteProperties();
+                       //Add Lockout icon on top of swagger ui page to authenticate
+                       options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
                     Name = "Authorization",
