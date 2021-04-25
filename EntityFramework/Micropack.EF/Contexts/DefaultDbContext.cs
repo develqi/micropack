@@ -37,6 +37,17 @@ namespace Micropack.EF
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
+        public void TryUpdateManyToMany<TEntity, TKey>(IEnumerable<TEntity> currentItems, IEnumerable<TEntity> newItems, Func<TEntity, TKey> getKey) where TEntity : class, IEntity
+        {
+            var toRemoveData = currentItems.Except(newItems, getKey);
+            var toAddData = newItems.Except(currentItems, getKey);
+            var toUpdateData = currentItems.Intersect(newItems);
+
+            Set<TEntity>().RemoveRange(toRemoveData);
+            Set<TEntity>().AddRange(toAddData);
+            Set<TEntity>().UpdateRange(toUpdateData);
+        }
+
         // -------------------- Private -------------------- //
 
         private void DetectChangesBeforSaveChanges()
@@ -68,7 +79,7 @@ namespace Micropack.EF
             var historyEntries = entries.Where(entry => typeof(IHistory).IsAssignableFrom(entry.Entity.GetType()));
 
             historyEntries.Where(entry => entry.State == EntityState.Added).ToList().ForEach(entry => (entry.Entity as IHistory).CreatedOn = now);
-            historyEntries.Where(entry => entry.State == EntityState.Modified).ToList().ForEach(entry => (entry.Entity as IHistory).ModifiedOn = now);
+            historyEntries.Where(entry => entry.State == EntityState.Modified).ToList().ForEach(entry => (entry.Entity as IHistory).LastModifiedOn = now);
         }
 
         private void ApplyOwnerId(IEnumerable<EntityEntry> entries, Guid userId)
@@ -80,7 +91,7 @@ namespace Micropack.EF
             ownerEntries.ForEach(entry => (entry.Entity as IOwner).OwnerId = userId);
         }
 
-        private void ApplyTenantId(IEnumerable<EntityEntry> entries, Guid tenantId)
+        private void ApplyTenantId(IEnumerable<EntityEntry> entries, int tenantId)
         {
             var tenantableEntries = entries.Where(entry => entry.State == EntityState.Added)
                                            .Where(entry => typeof(ITenantable).IsAssignableFrom(entry.Entity.GetType()))
