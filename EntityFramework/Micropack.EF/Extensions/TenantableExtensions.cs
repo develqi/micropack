@@ -17,7 +17,7 @@ namespace Micropack.EF
         public static void HasTenantableQueryFilter<TEntity>(this EntityTypeBuilder<TEntity> builder)
            where TEntity : class, IEntity, ITenantable
         {
-            var tenantId = Guid.Empty; // ToDo: get TenantId from HttpContext
+            var tenantId = 0; // ToDo: get TenantId from HttpContext
 
             builder.HasQueryFilter(x => x.TenantId == tenantId);
         }
