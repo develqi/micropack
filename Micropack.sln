@@ -37,7 +37,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Micropack.Localization", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Micropack.IoC", "Micropack.IoC\Micropack.IoC.csproj", "{A038AC16-E4DD-43C4-B943-E8515D1AB27D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micropack.RegularExpression", "Micropack.RegularExpression\Micropack.RegularExpression.csproj", "{EBE88444-C994-44C2-9223-D23E08B78D6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Micropack.RegularExpression", "Micropack.RegularExpression\Micropack.RegularExpression.csproj", "{EBE88444-C994-44C2-9223-D23E08B78D6B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Micropack.Localization.EF", "Micropack.Localization.EF\Micropack.Localization.EF.csproj", "{233C4010-CC96-4B50-A7D3-6563722EAF52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micropack.Localization.FluentValidation.Extensions", "Localization\Micropack.Localization.FluentValidation.Extensions\Micropack.Localization.FluentValidation.Extensions.csproj", "{C6B45B33-F83A-4257-BE5B-5266ECE4F8A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Localization", "Localization", "{16FD0064-9120-4FBA-BE9A-AA3EFEAF072F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +107,14 @@ Global
 		{EBE88444-C994-44C2-9223-D23E08B78D6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBE88444-C994-44C2-9223-D23E08B78D6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBE88444-C994-44C2-9223-D23E08B78D6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{233C4010-CC96-4B50-A7D3-6563722EAF52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{233C4010-CC96-4B50-A7D3-6563722EAF52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{233C4010-CC96-4B50-A7D3-6563722EAF52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{233C4010-CC96-4B50-A7D3-6563722EAF52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6B45B33-F83A-4257-BE5B-5266ECE4F8A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6B45B33-F83A-4257-BE5B-5266ECE4F8A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6B45B33-F83A-4257-BE5B-5266ECE4F8A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6B45B33-F83A-4257-BE5B-5266ECE4F8A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +129,9 @@ Global
 		{A038FBFB-3842-4DC9-AF60-B83FBCE245DB} = {84BE91AC-2900-46F7-8AC2-CF3B88C380DC}
 		{A9020721-D51C-45FD-AF8F-F6A4877D38DB} = {D013068F-9FAE-48A6-AD0A-114CA81B8CC0}
 		{E7A08FBF-809F-4311-9A21-2358FA85DFAD} = {D77C82F2-0913-4253-B816-631F2324E11B}
+		{065B46EF-3391-4DAB-BFE0-25C0F6812E1A} = {16FD0064-9120-4FBA-BE9A-AA3EFEAF072F}
+		{233C4010-CC96-4B50-A7D3-6563722EAF52} = {16FD0064-9120-4FBA-BE9A-AA3EFEAF072F}
+		{C6B45B33-F83A-4257-BE5B-5266ECE4F8A9} = {16FD0064-9120-4FBA-BE9A-AA3EFEAF072F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B837C28E-61D2-428D-85F7-10150CFA8316}
