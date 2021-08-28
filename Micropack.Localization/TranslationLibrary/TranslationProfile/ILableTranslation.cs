@@ -2,7 +2,7 @@
 {
     public interface ILableTranslation
     {
-        ILableTranslation LabelForKey(string key);
+        ILableTranslation LabelFor(string key);
 
         ILableTranslation Fa(string valueFa);
 

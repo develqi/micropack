@@ -4,9 +4,9 @@
     {
         public ValidationTranslation()
         {
-            ValidationForKey("RequiredValidationMessage").FaMessage("وارد کردن این فیلد اجباری است").EnMessage("This filed is required.");
+            ValidationFor("RequiredValidationMessage").FaMessage("وارد کردن این فیلد اجباری است").EnMessage("This filed is required.");
 
-            ValidationForKey("MaxLengthValidationMessage")
+            ValidationFor("MaxLengthValidationMessage")
                 .FaMessage("حداکثر تعداد کاراکتر مجاز برای فیلد '{0}' {1} میباشد")
                 .EnMessage("Maximum lentgh for field '{0}' is {1}");
         }

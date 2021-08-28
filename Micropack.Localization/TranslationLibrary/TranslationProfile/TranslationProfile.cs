@@ -18,7 +18,7 @@ namespace Micropack.Localization
             _validationsTranslation = new List<ValidationMessageTranslation>();
         }
 
-        public ILableTranslation LabelForKey(string key)
+        public ILableTranslation LabelFor(string key)
         {
             if (string.IsNullOrWhiteSpace(key))
                 throw new ArgumentNullException("LabelKey", "TranslationProfile.cs error=> Label key is null or empty");
@@ -57,7 +57,7 @@ namespace Micropack.Localization
             return this;
         }
 
-        public IValidationTranslation ValidationForKey(string key)
+        public IValidationTranslation ValidationFor(string key)
         {
             if (string.IsNullOrWhiteSpace(key))
                 throw new ArgumentNullException("ValidationKey", "TranslationProfile.cs error=> Validation key is null or empty");
@@ -95,5 +95,7 @@ namespace Micropack.Localization
 
             return this;
         }
+
+        public List<LabelTranslation> Labels => _labelsTranslation;
     }
 }
