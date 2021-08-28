@@ -59,7 +59,11 @@ namespace Micropack.EF.Interceptors
                     case DbType.StringFixedLength:
                     case DbType.Xml:
                         if (!(parameter.Value is DBNull) && parameter.Value is string)
+                        {
                             parameter.Value = Convert.ToString(parameter.Value, CultureInfo.InvariantCulture).ApplyCorrectYeKe();
+                            if (parameter.Value.ToString() == "")
+                                parameter.Value = DBNull.Value;
+                        }
                         break;
                 }
             }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace Micropack.EF
         ChangeTracker ChangeTracker { get; }
 
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
+
+        IQueryable<TEntity> Proxy<TEntity>() where TEntity : class;
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 

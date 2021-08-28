@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Micropack.EF
 {
-    public class DefaultDbContext<TEntity, TEntityMap> : DbContext, IDbContext
+    public class DefaultDbContext<TEntity, TEntityMap> : DbContext
         where TEntity : class, IEntity
         where TEntityMap : class, IEntityTypeConfiguration<TEntity>
     {
@@ -17,7 +17,7 @@ namespace Micropack.EF
         {
             // it should be placed here, otherwise it will rewrite the following settings!
             base.OnModelCreating(modelBuilder);
-            
+
             modelBuilder.ApplyDbSetsFromAssemblyContaining<TEntity>();
             modelBuilder.ApplyConfigurationsFromAssemblyContaining<TEntity, TEntityMap>();
             modelBuilder.ApplySoftDeleteQueryFilterFromAssemblyContaining<TEntity>();
@@ -91,13 +91,5 @@ namespace Micropack.EF
             ownerEntries.ForEach(entry => (entry.Entity as IOwner).OwnerId = userId);
         }
 
-        private void ApplyTenantId(IEnumerable<EntityEntry> entries, int tenantId)
-        {
-            var tenantableEntries = entries.Where(entry => entry.State == EntityState.Added)
-                                           .Where(entry => typeof(ITenantable).IsAssignableFrom(entry.Entity.GetType()))
-                                           .ToList();
-
-            tenantableEntries.ForEach(entry => (entry.Entity as ITenantable).TenantId = tenantId);
-        }
     }
 }
