@@ -9,8 +9,8 @@ namespace Micropack.Localization
             // ToDo: 
         }
 
-        public List<LabelTranslation> Labels { get; set; }
+        //public List<LabelTranslation> Labels { get; set; }
 
-        public List<ValidationMessageTranslation> Validations { get; set; }
+        //public List<ValidationMessageTranslation> Validations { get; set; }
     }
 }

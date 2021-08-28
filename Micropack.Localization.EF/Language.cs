@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Micropack.Localization
+namespace Micropack.Localization.EF
 {
     public class Language
     {
@@ -12,24 +12,18 @@ namespace Micropack.Localization
 
         public string Abbreviation { get; set; }
 
-        public ICollection<LabelTranslation> LabelTranslations { get; set; }
-
-        public ICollection<ValidationMessageTranslation> ValidationMessageTranslations { get; set; }
-        
-        public ICollection<InformationMessageTranslation> InformationMessageTranslations { get; set; }
+        public ICollection<Transtation> Transtations { get; set; }
     }
 
     public class LanguageMap : IEntityTypeConfiguration<Language>
     {
         public void Configure(EntityTypeBuilder<Language> builder)
         {
+            builder.ToTable("Languages", "Localization");
+
             builder.Property(p => p.Name).HasMaxLength(50);
             builder.Property(p => p.Abbreviation).HasMaxLength(3);
 
-            //builder.HasIndex(p => p.Name).IsUnique().HasDatabaseName("IX_Name");
-            //builder.HasIndex(p => p.Abbreviation).IsUnique().HasDatabaseName("IX_Abbreviation");
-
-            //seed data
             builder.HasData(
                             new Language { Id = 1, Name = "Persian", Abbreviation = "Fa" },
                             new Language { Id = 2, Name = "English", Abbreviation = "En" }

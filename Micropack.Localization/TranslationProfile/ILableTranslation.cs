@@ -4,8 +4,8 @@
     {
         ILableTranslation LabelFor(string key);
 
-        ILableTranslation Fa(string valueFa);
+        ILableTranslation Fa(string fa);
 
-        ILableTranslation En(string valueEn);
+        ILableTranslation En(string en);
     }
 }

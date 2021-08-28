@@ -4,8 +4,8 @@
     {
         IValidationTranslation ValidationFor(string key);
 
-        IValidationTranslation FaMessage(string valueFa);
+        IValidationTranslation FaMessage(string fa);
 
-        IValidationTranslation EnMessage(string valueEn);
+        IValidationTranslation EnMessage(string en);
     }
 }
