@@ -6,6 +6,7 @@ namespace Micropack.IoC
 {
     public static class Extensions
     {
+        // Auto register services from assembly
         public static void AddAutoRegisterServicesFromAssemblyContaining<TService>(this IServiceCollection services)
         {
             var assembly = typeof(TService).Assembly;
