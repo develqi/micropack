@@ -2,6 +2,8 @@
 {
     public interface IValidationTranslation
     {
+        Dictionary[] Validations { get; }
+
         IValidationTranslation ValidationFor(string key);
 
         IValidationTranslation FaMessage(string fa);

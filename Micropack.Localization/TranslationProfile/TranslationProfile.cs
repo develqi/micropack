@@ -20,6 +20,18 @@ namespace Micropack.Localization
         private string _validationKey;
         private string _informationKey;
 
+        public Dictionary[] Errors => _errors.Select(error => error.Dictionary).ToArray();
+
+        public Dictionary[] Labels => _labels.Select(label => label.Dictionary).ToArray();
+
+        public Dictionary[] Confirms => _confirms.Select(confirm => confirm.Dictionary).ToArray();
+
+        public Dictionary[] Warnings => _warnings.Select(warning => warning.Dictionary).ToArray();
+
+        public Dictionary[] Validations => _validations.Select(validation => validation.Dictionary).ToArray();
+
+        public Dictionary[] Informations => _informations.Select(information => information.Dictionary).ToArray();
+        
         public TranslationProfile()
         {
             _labels = new List<Transtation>();
