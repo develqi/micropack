@@ -17,6 +17,11 @@ namespace Micropack.EF
         //                .DynamicSelect(pagination.Select);
         //}
 
+        public static IQueryable<TEntity> UnionSpecialId<TEntity>(this IQueryable<TEntity> query, int recordId) where TEntity : class, IEntityNumeric
+        {
+            return query.Union(query.Where(x => recordId == 0 || x.Id == recordId));
+        }
+
         public static IQueryable<TEntity> Pagination<TEntity>(this IQueryable<TEntity> query, int page, int count) where TEntity : class
         {
             return page == 1 ? query.Take(count) : query.Skip((page - 1) * count).Take(count);
