@@ -15,7 +15,7 @@ namespace Micropack.AspNetCore
             set
             {
                 if(value < 1)
-                    throw new ArgumentException("Page parameter is not valid.");
+                    throw new ArgumentException("Page parameter greater than 0.");
 
                 _page = value;
             }
@@ -28,7 +28,7 @@ namespace Micropack.AspNetCore
             set
             {
                 if (value < 1 || value > 100)
-                    throw new ArgumentException("Size parameter is not valid.");
+                    throw new ArgumentException("Size parameter must between 1 to 100.");
 
                 _size = value;
             }
@@ -43,11 +43,14 @@ namespace Micropack.AspNetCore
         [FromQuery]
         public string Select { get; set; }
 
-        //public bool NoSort => string.IsNullOrWhiteSpace(OrderBy);
+        [FromQuery]
+        public int RecordId { get; set; }
 
-        //public bool NoFilter => string.IsNullOrWhiteSpace(Filter);
+        public bool NoSort => string.IsNullOrWhiteSpace(OrderBy);
 
-        //public bool NoSelect => string.IsNullOrWhiteSpace(Select);
+        public bool NoFilter => string.IsNullOrWhiteSpace(Filter);
+
+        public bool NoSelect => string.IsNullOrWhiteSpace(Select);
 
         //public string QueryString => GetQueryString();
 
