@@ -2,6 +2,8 @@
 {
     public class Dictionary
     {
+        public byte Order { get; set; }
+
         public string Key { get; set; }
 
         public string Fa { get; set; }
