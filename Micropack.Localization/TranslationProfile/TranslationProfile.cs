@@ -4,14 +4,22 @@ using System.Collections.Generic;
 
 namespace Micropack.Localization
 {
-    public class TranslationProfile : ILableTranslation, IValidationTranslation, IInformationTranslation, IWarningTranslation, IConfirmTranslation, IErrorTranslation
+    public class TranslationProfile :
+        IEnumTranslation,
+        ILableTranslation, 
+        IErrorTranslation,
+        IWarningTranslation, 
+        IConfirmTranslation, 
+        IValidationTranslation, 
+        IInformationTranslation
     {
-        private readonly List<Transtation> _labels;
-        private readonly List<Transtation> _errors;
-        private readonly List<Transtation> _confirms;
-        private readonly List<Transtation> _warnings;
-        private readonly List<Transtation> _validations;
-        private readonly List<Transtation> _informations;
+        private readonly List<EnumItem> _enums = new();
+        private readonly List<Transtation> _labels = new();
+        private readonly List<Transtation> _errors = new();
+        private readonly List<Transtation> _confirms = new();
+        private readonly List<Transtation> _warnings = new();
+        private readonly List<Transtation> _validations = new();
+        private readonly List<Transtation> _informations = new();
 
         private string _labelKey;
         private string _errorKey;
@@ -19,6 +27,8 @@ namespace Micropack.Localization
         private string _confirmKey;
         private string _validationKey;
         private string _informationKey;
+
+        public EnumItem[] Enums => _enums.ToArray();
 
         public Dictionary[] Errors => _errors.Select(error => error.Dictionary).ToArray();
 
@@ -31,16 +41,6 @@ namespace Micropack.Localization
         public Dictionary[] Validations => _validations.Select(validation => validation.Dictionary).ToArray();
 
         public Dictionary[] Informations => _informations.Select(information => information.Dictionary).ToArray();
-        
-        public TranslationProfile()
-        {
-            _labels = new List<Transtation>();
-            _errors = new List<Transtation>();
-            _confirms = new List<Transtation>();
-            _warnings = new List<Transtation>();
-            _validations = new List<Transtation>();
-            _informations = new List<Transtation>();
-        }
 
         public ILableTranslation LabelFor(string key)
         {
@@ -177,6 +177,26 @@ namespace Micropack.Localization
             _errors.Find(_errorKey).En(en);
 
             return this;
-        }      
+        }
+
+        public void EnumFor<TEnum>() where TEnum : Enum
+        {
+            var enumName = typeof(TEnum).Name;
+
+            if (!_enums.Any(e => e.EnumName == enumName))
+            {
+                var enumItems = EnumExtenstions.GetDictionaryItems<TEnum>().Select((item, index) => new Dictionary
+                {
+                    En = item.En,
+                    Fa = item.Fa,
+                    Key = item.Key,
+                    Alias = item.Alias,
+                    Order = (byte)(index + 1)
+                }).ToArray();
+
+                var enumItem = new EnumItem(enumName, enumItems);
+                _enums.Add(enumItem);
+            }
+        }        
     }
 }
