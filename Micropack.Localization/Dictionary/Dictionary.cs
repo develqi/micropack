@@ -20,5 +20,7 @@
         public bool ShouldSerializeEn() => !(string.IsNullOrWhiteSpace(En));
 
         public bool ShouldSerializeAlias() => !(string.IsNullOrWhiteSpace(Alias));
+
+        public DictionaryItem[] Items { get; set; }
     }
 }
