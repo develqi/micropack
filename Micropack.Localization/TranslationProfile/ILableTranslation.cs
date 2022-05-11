@@ -2,7 +2,7 @@
 {
     public interface ILableTranslation
     {
-        Dictionary[] Labels { get; }
+        DictionaryJson[] Labels { get; }
 
         ILableTranslation LabelFor(string key);
 

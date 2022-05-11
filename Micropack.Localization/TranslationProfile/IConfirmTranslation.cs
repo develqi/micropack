@@ -2,7 +2,7 @@
 {
     public interface IConfirmTranslation
     {
-        Dictionary[] Confirms { get; }
+        DictionaryJson[] Confirms { get; }
 
         IConfirmTranslation ConfirmFor(string key);
 

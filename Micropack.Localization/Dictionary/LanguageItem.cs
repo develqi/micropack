@@ -4,5 +4,7 @@ public class LanguageItem
 {
     public string? Title { get; set; }
 
-    public string? Abbreviation { get; set; }
+    public string? Code { get; set; }
+
+    public string Direction { get; set; }
 }

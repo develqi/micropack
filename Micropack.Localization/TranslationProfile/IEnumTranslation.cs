@@ -2,7 +2,7 @@
 
 namespace Micropack.Localization
 {
-    public record EnumItem(string EnumName, Dictionary[] EnumItems);
+    public record EnumItem(string EnumName, DictionaryJson[] EnumItems);
 
     public interface IEnumTranslation
     {

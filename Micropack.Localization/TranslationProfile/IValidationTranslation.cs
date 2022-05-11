@@ -2,7 +2,7 @@
 {
     public interface IValidationTranslation
     {
-        Dictionary[] Validations { get; }
+        DictionaryJson[] Validations { get; }
 
         IValidationTranslation ValidationFor(string key);
 

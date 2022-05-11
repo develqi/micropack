@@ -1,4 +1,6 @@
-﻿namespace Micropack.Localization
+﻿using System.Collections.Generic;
+
+namespace Micropack.Localization
 {
     public class Dictionary
     {
@@ -21,6 +23,6 @@
 
         public bool ShouldSerializeAlias() => !(string.IsNullOrWhiteSpace(Alias));
 
-        public DictionaryItem[] Items { get; set; }
+        public List<DictionaryItem> Items { get; set; }
     }
 }

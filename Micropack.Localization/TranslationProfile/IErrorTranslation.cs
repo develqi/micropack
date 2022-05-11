@@ -2,7 +2,7 @@
 {
     public interface IErrorTranslation
     {
-        Dictionary[] Errors { get; }
+        DictionaryJson[] Errors { get; }
 
         IErrorTranslation ErrorFor(string key);
 

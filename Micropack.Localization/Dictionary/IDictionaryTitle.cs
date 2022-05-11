@@ -2,6 +2,6 @@
 {
     public interface IDictionaryTitle
     {
-        Dictionary Title { get; set; }
+        DictionaryJson Title { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 {
     public interface IInformationTranslation
     {
-        Dictionary[] Informations { get; }
+        DictionaryJson[] Informations { get; }
 
         IInformationTranslation InformationFor(string key);
 

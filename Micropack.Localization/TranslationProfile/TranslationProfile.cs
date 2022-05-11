@@ -30,17 +30,17 @@ namespace Micropack.Localization
 
         public EnumItem[] Enums => _enums.ToArray();
 
-        public Dictionary[] Errors => _errors.Select(error => error.Dictionary).ToArray();
+        public DictionaryJson[] Errors => _errors.Select(error => error.Dictionary).ToArray();
 
-        public Dictionary[] Labels => _labels.Select(label => label.Dictionary).ToArray();
+        public DictionaryJson[] Labels => _labels.Select(label => label.Dictionary).ToArray();
 
-        public Dictionary[] Confirms => _confirms.Select(confirm => confirm.Dictionary).ToArray();
+        public DictionaryJson[] Confirms => _confirms.Select(confirm => confirm.Dictionary).ToArray();
 
-        public Dictionary[] Warnings => _warnings.Select(warning => warning.Dictionary).ToArray();
+        public DictionaryJson[] Warnings => _warnings.Select(warning => warning.Dictionary).ToArray();
 
-        public Dictionary[] Validations => _validations.Select(validation => validation.Dictionary).ToArray();
+        public DictionaryJson[] Validations => _validations.Select(validation => validation.Dictionary).ToArray();
 
-        public Dictionary[] Informations => _informations.Select(information => information.Dictionary).ToArray();
+        public DictionaryJson[] Informations => _informations.Select(information => information.Dictionary).ToArray();
 
         public ILableTranslation LabelFor(string key)
         {
@@ -185,13 +185,15 @@ namespace Micropack.Localization
 
             if (!_enums.Any(e => e.EnumName == enumName))
             {
-                var enumItems = EnumExtenstions.GetDictionaryItems<TEnum>().Select((item, index) => new Dictionary
+                var enumItems = EnumExtenstions.GetDictionaryItems<TEnum>().Select((item, index) => new DictionaryJson
                 {
-                    En = item.En,
-                    Fa = item.Fa,
                     Key = item.Key,
-                    Alias = item.Alias,
-                    Order = (byte)(index + 1)
+                    Order = (byte)(index + 1),
+                    Items = new List<DictionaryItem>
+                    {
+                        new DictionaryItem{ Code = "Fa", Caption = item.Fa },
+                        new DictionaryItem{ Code = "En", Caption = item.En }
+                    }
                 }).ToArray();
 
                 var enumItem = new EnumItem(enumName, enumItems);

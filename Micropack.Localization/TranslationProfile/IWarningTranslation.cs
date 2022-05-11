@@ -2,7 +2,7 @@
 {
     public interface IWarningTranslation
     {
-        Dictionary[] Warnings { get; }
+        DictionaryJson[] Warnings { get; }
 
         IWarningTranslation WarningFor(string key);
 
