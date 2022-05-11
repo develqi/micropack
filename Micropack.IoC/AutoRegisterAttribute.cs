@@ -1,10 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Micropack.IoC
+namespace Micropack.IoC;
+
+[AttributeUsage(AttributeTargets.Class)]
+public class AutoRegisterAttribute : Attribute
 {
-    public class AutoRegisterAttribute : Attribute
-    {
-        public ServiceLifetime ServiceLifetime { get; set; } = ServiceLifetime.Scoped;
-    }
+    public ServiceLifetime ServiceLifetime { get; set; } = ServiceLifetime.Scoped;
 }

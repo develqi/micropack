@@ -1,4 +1,5 @@
 ﻿using System;
+using Micropack.IoC;
 
 namespace Micropack.DesignPattern.Strategy
 {

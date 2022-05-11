@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Micropack.IoC;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Micropack.DesignPattern.Strategy
