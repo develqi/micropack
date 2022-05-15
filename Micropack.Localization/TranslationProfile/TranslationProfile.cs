@@ -13,7 +13,7 @@ namespace Micropack.Localization
         IValidationTranslation, 
         IInformationTranslation
     {
-        private readonly List<EnumItem> _enums = new();
+        private readonly List<EnumJson> _enums = new();
         private readonly List<Transtation> _labels = new();
         private readonly List<Transtation> _errors = new();
         private readonly List<Transtation> _confirms = new();
@@ -28,7 +28,7 @@ namespace Micropack.Localization
         private string _validationKey;
         private string _informationKey;
 
-        public EnumItem[] Enums => _enums.ToArray();
+        public EnumJson[] Enums => _enums.ToArray();
 
         public DictionaryJson[] Errors => _errors.Select(error => error.Dictionary).ToArray();
 
@@ -196,7 +196,7 @@ namespace Micropack.Localization
                     }
                 }).ToArray();
 
-                var enumItem = new EnumItem(enumName, enumItems);
+                var enumItem = new EnumJson(enumName, enumItems);
                 _enums.Add(enumItem);
             }
         }        

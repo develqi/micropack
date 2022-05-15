@@ -2,11 +2,11 @@
 
 namespace Micropack.Localization
 {
-    public record EnumItem(string EnumName, DictionaryJson[] EnumItems);
+    public record EnumJson(string EnumName, DictionaryJson[] EnumItems);
 
     public interface IEnumTranslation
     {
-        EnumItem [] Enums { get; }
+        EnumJson[] Enums { get; }
 
         void EnumFor<TEnum>() where TEnum : Enum;
     }
