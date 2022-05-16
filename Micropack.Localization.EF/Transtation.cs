@@ -8,7 +8,7 @@ namespace Micropack.Localization.EF
     {
         public int Id { get; set; }
 
-        public Dictionary Dictionary { get; set; }
+        public DictionaryJson Dictionary { get; set; }
 
         public LocalizationTypes Type { get; set; }
     }
@@ -19,7 +19,7 @@ namespace Micropack.Localization.EF
         {
             builder.ToTable("Translations", "Localization");
 
-            builder.Property(x => x.Dictionary).IsRequired().HasMaxLength(1000).HasJsonConversion<Dictionary>();
+            builder.Property(x => x.Dictionary).IsRequired().HasMaxLength(1000).HasJsonConversion<DictionaryJson>();
         }
     }
 }

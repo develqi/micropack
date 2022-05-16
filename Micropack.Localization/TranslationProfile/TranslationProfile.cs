@@ -188,12 +188,8 @@ namespace Micropack.Localization
                 var enumItems = EnumExtenstions.GetDictionaryItems<TEnum>().Select((item, index) => new DictionaryJson
                 {
                     Key = item.Key,
+                    Items = item.Items,
                     Order = (byte)(index + 1),
-                    Items = new List<DictionaryItem>
-                    {
-                        new DictionaryItem{ Code = "Fa", Caption = item.Fa },
-                        new DictionaryItem{ Code = "En", Caption = item.En }
-                    }
                 }).ToArray();
 
                 var enumItem = new EnumJson(enumName, enumItems);

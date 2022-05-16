@@ -22,15 +22,20 @@ namespace Micropack.Localization
             return item.GetEnumTitleAttribute().ConstructorArguments[2].Value?.ToString();
         }
 
-        public static List<Dictionary> GetDictionaryItems<TEnum>() where TEnum : Enum
+        public static List<DictionaryJson> GetDictionaryItems<TEnum>() where TEnum : Enum
         {
             var items = typeof(TEnum).GetMembers()
                 .Select(item => new { item.Name, Attribute = item.GetCustomAttribute<EnumTitleAttribute>() })
                 .Where(item => item.Attribute is not null)
                 .Select(item => item.Name.ToEnum<TEnum>())
-                .Select(item => new Dictionary 
+                .Select(item => new DictionaryJson
                 {
-                    Key = item.ToString(), Fa = item.TitleFa(), En = item.TitleEn()
+                    Key = item.ToString(),
+                    Items = new List<DictionaryItem>
+                    {
+                        new DictionaryItem{ Code = "Fa", Caption = item.TitleFa() },
+                        new DictionaryItem{ Code = "En", Caption = item.TitleEn() }
+                    }
                 })
                 .ToList();
 
