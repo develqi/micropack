@@ -182,11 +182,12 @@ namespace Micropack.Localization
         public void EnumFor<TEnum>() where TEnum : Enum
         {
             var enumName = typeof(TEnum).Name;
-
+            
             if (!_enums.Any(e => e.EnumName == enumName))
             {
-                var enumItems = EnumExtenstions.GetDictionaryItems<TEnum>().Select((item, index) => new DictionaryJson
+                var enumItems = EnumExtenstions.GetDictionaryItems<TEnum>().Select((item, index) => new EnumDictionaryJson
                 {
+                    Id = item.Id,
                     Key = item.Key,
                     Items = item.Items,
                     Order = (byte)(index + 1),
