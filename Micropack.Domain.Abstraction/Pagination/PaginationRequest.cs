@@ -7,6 +7,8 @@ namespace Micropack.Domain.Abstraction
         private int _page = 1;
         private int _size = 10;
 
+        private int _maximumSize = 500;
+
         public int Page
         {
             get => _page;
@@ -24,7 +26,7 @@ namespace Micropack.Domain.Abstraction
             get => _size;
             set
             {
-                if (value < 1 || value > 100)
+                if (value < 1 || value > _maximumSize)
                     throw new ArgumentException("Size parameter must between 1 to 100.");
 
                 _size = value;
@@ -50,6 +52,8 @@ namespace Micropack.Domain.Abstraction
         public bool NoFilter => string.IsNullOrWhiteSpace(Filter);
 
         public bool NoSelect => string.IsNullOrWhiteSpace(Select);
+
+        public void SetMaximumSize(int maximumSize) => _maximumSize = maximumSize;
 
         //public string QueryString => GetQueryString();
 
