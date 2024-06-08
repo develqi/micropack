@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+	<Nullable>enable</Nullable>
+	<PackageOutputPath>C:\Packages\micropack</PackageOutputPath>
+	<VersionPrefix>1.0.0</VersionPrefix>
   </PropertyGroup>
 
   <ItemGroup>
