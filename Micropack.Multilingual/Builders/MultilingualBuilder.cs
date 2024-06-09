@@ -1,8 +1,5 @@
-﻿using System.Reflection;
+﻿namespace Micropack.Multilingual;
 
-namespace Micropack.Multilingual;
-
-          // LocalizationFactory
 public class MultilingualBuilder<TMultilingual> where TMultilingual : Multilingual
 {
     protected TMultilingual _item;
@@ -59,4 +56,6 @@ public class MultilingualBuilder<TMultilingual> where TMultilingual : Multilingu
     private bool Exist(string key) => _items.Any(item => item.Key.Equals(key, StringComparison.CurrentCultureIgnoreCase));
 
     private byte GetOrder() => (byte)(_items.Count + 1);
+
+    public TMultilingual[] Build() => Items;
 }

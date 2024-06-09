@@ -1,6 +1,6 @@
 ﻿namespace Micropack.Multilingual;
 
-public class TabFormMultilingualBuilder : MultilingualBuilder<FormItem>
+public class TabFormMultilingualBuilder : MultilingualBuilder<MultilingualForm>
 {
     public TabFormMultilingualBuilder AddTabForm(string name) => AddItem(name) as TabFormMultilingualBuilder;
 
@@ -24,7 +24,7 @@ public class TabFormMultilingualBuilder : MultilingualBuilder<FormItem>
 
         action?.Invoke(tabFormLocalizationFactory);
 
-        _item.TabForms = tabFormLocalizationFactory.Items.Cast<FormItem>().ToList();
+        _item.TabForms = tabFormLocalizationFactory.Items.Cast<MultilingualForm>().ToList();
 
         return this;
     }
@@ -35,7 +35,7 @@ public class TabFormMultilingualBuilder : MultilingualBuilder<FormItem>
 
         action?.Invoke(tabFormLocalizationFactory);
 
-        _item.TabForms = tabFormLocalizationFactory.Items.Cast<FormItem>().ToList();
+        _item.TabForms = tabFormLocalizationFactory.Items.Cast<MultilingualForm>().ToList();
     }
 
 

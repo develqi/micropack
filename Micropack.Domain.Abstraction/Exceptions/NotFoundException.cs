@@ -2,5 +2,9 @@
 
 public class NotFoundException : Exception
 {
-    public override string Message => "Not found object by the unique identity...!";
+    private readonly string? _message;
+
+    public NotFoundException(string? message = "NotFound...!") => _message = message;
+
+    public override string Message => _message;
 }

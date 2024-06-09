@@ -10,7 +10,7 @@ public record PaginationRequest
         get => _page;
         set
         {
-            if(value < 1)
+            if (value < 1)
                 throw new ArgumentException("Page parameter greater than 0.");
 
             _page = value;
@@ -29,7 +29,7 @@ public record PaginationRequest
         }
     }
 
-    private string _filter;
+    private string? _filter;
 
     public string Filter
     {
@@ -37,9 +37,9 @@ public record PaginationRequest
         set => _filter = value;
     }
 
-    public string OrderBy { get; set; }
+    public string? OrderBy { get; set; }
 
-    public string Select { get; set; }
+    public string? Select { get; set; }
 
     public int RecordId { get; set; }
 

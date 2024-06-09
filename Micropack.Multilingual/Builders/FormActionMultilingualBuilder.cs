@@ -1,6 +1,6 @@
 ﻿namespace Micropack.Multilingual;
 
-public class FormActionMultilingualBuilder : MultilingualBuilder<FormItem>
+public class FormActionMultilingualBuilder : MultilingualBuilder<MultilingualForm>
 {
     //public TabFormMultilingualBuilder AddField<TController>() where TController : ControllerBase => AddItem(typeof(TController).Name.Replace("Controller", "")) as TabFormMultilingualBuilder;
 

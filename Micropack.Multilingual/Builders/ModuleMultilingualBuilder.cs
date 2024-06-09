@@ -1,6 +1,6 @@
 ﻿namespace Micropack.Multilingual;
 
-public class ModuleMultilingualBuilder : MultilingualBuilder<ModuleItem>
+public class ModuleMultilingualBuilder : MultilingualBuilder<MultilingualModule>
 {
     public ModuleMultilingualBuilder? AddModule(string key) => AddItem(key) as ModuleMultilingualBuilder;
 
@@ -15,6 +15,6 @@ public class ModuleMultilingualBuilder : MultilingualBuilder<ModuleItem>
         var menuLocalizationFactory = new MenuMultilingualBuilder();
 
         action?.Invoke(menuLocalizationFactory);
-        _item.Menus = menuLocalizationFactory.Items.Cast<MenuItem>().ToList();
+        _item.Menus = menuLocalizationFactory.Items.Cast<MultilingualMenu>().ToList();
     }
 }

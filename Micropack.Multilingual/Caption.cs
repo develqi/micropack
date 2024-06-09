@@ -2,13 +2,23 @@
 
 public class Caption
 {
+    public Caption()
+    {
+        
+    }
+    public Caption(string fa)
+    {
+        Language = "Fa";
+        Label = fa;
+    }
+
     public string? Alias { get; set; }
 
     public string Title => Alias ?? Label;
 
-    public required string Label { get; set; }
+    public string Label { get; set; }
 
-    public required string Language { get; set; }
+    public string Language { get; set; }
 
     public bool ShouldSerializeAlias()
     {
