@@ -1,9 +1,6 @@
-﻿using System;
+﻿namespace Micropack.Abstraction;
 
-namespace Micropack.Domain.Abstraction
+public interface IOwner
 {
-    public interface IOwner
-    {
-        Guid OwnerId { get; set; }
-    }
+    Guid OwnerId { get; set; }
 }

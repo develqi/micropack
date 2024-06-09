@@ -1,9 +1,6 @@
-﻿using System;
+﻿namespace Micropack.Abstraction;
 
-namespace Micropack.Domain.Abstraction
+public interface IAggregate
 {
-    public interface IAggregate
-    {
-        Guid Id { get; }
-    }
+    Guid Id { get; }
 }

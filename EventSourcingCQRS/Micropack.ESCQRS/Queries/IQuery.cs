@@ -1,9 +1,6 @@
-﻿using MediatR;
+﻿namespace Micropack.ESCQRS;
 
-namespace Micropack.ESCQRS
+public interface IQuery<out TResponse> : IRequest<TResponse>
 {
-    public interface IQuery<out TResponse> : IRequest<TResponse>
-    {
 
-    }
 }

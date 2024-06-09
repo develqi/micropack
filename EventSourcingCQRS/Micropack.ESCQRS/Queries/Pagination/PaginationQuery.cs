@@ -1,20 +1,16 @@
-﻿using MediatR;
+﻿namespace Micropack.ESCQRS;
 
-namespace Micropack.ESCQRS
+public class PaginationQuery<TResponse> : IRequest<TResponse> where TResponse : class
 {
-    public record PaginationQuery<TResponse> : IRequest<TResponse> where TResponse : class
-    {
-        public int Page { get; init; } = 1;
+    public int Page { get; set; } = 1;
 
-        public int Size { get; init; } = 20;
+    public int Size { get; set; } = 20;
 
-        public string OrderBy { get; init; }
+    public string? OrderBy { get; set; }
 
-        public string Select { get; init; }
+    public string? Select { get; set; }
 
-        public string Filter { get; init; }
+    public string? Filter { get; set; }
 
-        public bool NoFilter => string.IsNullOrWhiteSpace(Filter);
-    }
-
+    public bool NoFilter => string.IsNullOrWhiteSpace(Filter);
 }

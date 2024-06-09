@@ -1,9 +1,6 @@
-using MediatR;
+namespace Micropack.ESCQRS;
 
-namespace Micropack.ESCQRS
+public interface IEventHandler<in TEvent> : INotificationHandler<TEvent> where TEvent : IEvent
 {
-    public interface IEventHandler<in TEvent> : INotificationHandler<TEvent> where TEvent : IEvent
-    {
 
-    }
 }

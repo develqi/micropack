@@ -1,11 +1,8 @@
-﻿using System;
+﻿namespace Micropack.Abstraction;
 
-namespace Micropack.Domain.Abstraction
+public interface IHistory
 {
-    public interface IHistory
-    {
-        DateTimeOffset CreatedOn { get; set; }
+    DateTimeOffset CreatedOn { get; set; }
 
-        DateTimeOffset? LastModifiedOn { get; set; }
-    }
+    DateTimeOffset? LastModifiedOn { get; set; }
 }

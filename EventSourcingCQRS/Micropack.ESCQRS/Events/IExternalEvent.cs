@@ -1,6 +1,5 @@
-namespace Micropack.ESCQRS
+namespace Micropack.ESCQRS;
+
+public interface IExternalEvent : IEvent
 {
-    public interface IExternalEvent : IEvent
-    {
-    }
 }

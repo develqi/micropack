@@ -1,12 +1,11 @@
 ﻿using System.Text.Json;
 
-namespace Micropack.ESCQRS
+namespace Micropack.ESCQRS;
+
+public static class ICommandExtensions
 {
-    public static class ICommandExtensions
+    public static string Serialize<TCommand>(this TCommand command) where TCommand : ICommand
     {
-        public static string Serialize<TCommand>(this TCommand command) where TCommand : ICommand
-        {
-            return JsonSerializer.Serialize(command);
-        }
+        return JsonSerializer.Serialize(command);
     }
 }

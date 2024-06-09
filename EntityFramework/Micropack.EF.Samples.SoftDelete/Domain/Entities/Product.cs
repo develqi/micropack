@@ -1,5 +1,5 @@
 ﻿using System;
-using Micropack.Domain.Abstraction;
+using Micropack.Abstraction;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

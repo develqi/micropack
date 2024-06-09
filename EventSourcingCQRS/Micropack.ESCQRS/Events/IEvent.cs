@@ -1,8 +1,5 @@
-using MediatR;
+namespace Micropack.ESCQRS;
 
-namespace Micropack.ESCQRS
+public interface IEvent : INotification
 {
-    public interface IEvent : INotification
-    {
-    }
 }

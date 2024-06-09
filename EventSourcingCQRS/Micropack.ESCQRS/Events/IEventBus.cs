@@ -1,28 +1,27 @@
-using MediatR;
-using System.Threading.Tasks;
+namespace Micropack.ESCQRS;
 
-namespace Micropack.ESCQRS
+public interface IEventBus
 {
-    public interface IEventBus
+    Task Publish<TEvent>(params TEvent[] events) where TEvent : IEvent;
+}
+
+public class EventBus : IEventBus
+{
+    private readonly IMediator _mediator;
+    private readonly IPublisher publisher;
+
+    public EventBus(IMediator mediator)
     {
-        Task Publish<TEvent>(params TEvent[] events) where TEvent : IEvent;
+        _mediator = mediator;
     }
 
-    public class EventBus: IEventBus
+    public async Task Publish<TEvent>(params TEvent[] events) where TEvent : IEvent
     {
-        private readonly IMediator _mediator;
-
-        public EventBus(IMediator mediator)
+        foreach (var @event in events)
         {
-            _mediator = mediator;
-        }
+            await _mediator.Publish(@event);
 
-        public async Task Publish<TEvent>(params TEvent[] events) where TEvent : IEvent
-        {
-            foreach (var @event in events)
-            {
-                await _mediator.Publish(@event);
-            }
+
         }
     }
 }

@@ -1,7 +1,6 @@
-﻿namespace Micropack.Domain.Abstraction
+﻿namespace Micropack.Abstraction;
+
+public interface IHierarchy
 {
-    public interface IHierarchy
-    {
-        int? ParentId { get; set; }
-    }
+    int? ParentId { get; set; }
 }

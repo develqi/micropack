@@ -1,7 +1,6 @@
-﻿namespace Micropack.EF.Repository
-{
-    public class EfRepository
-    {
+﻿namespace Micropack.EF;
 
-    }
+public class EfRepository
+{
+
 }

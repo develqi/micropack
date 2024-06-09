@@ -1,8 +1,6 @@
-﻿
-namespace Micropack.Domain.Abstraction
+﻿namespace Micropack.Abstraction;
+
+public interface ISoftDeletable
 {
-    public interface ISoftDeletable
-    {
-        bool IsDeleted { get; set; }
-    }
+    bool IsDeleted { get; set; }
 }

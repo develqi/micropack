@@ -1,9 +1,6 @@
-﻿using System;
+﻿namespace Micropack.Abstraction;
 
-namespace Micropack.Domain.Abstraction
+public class NoChangesDetectedException : Exception
 {
-    public class NoChangesDetectedException : Exception
-    {
-        public override string Message => "No changes detected...!";
-    }
+    public override string Message => "No changes detected...!";
 }

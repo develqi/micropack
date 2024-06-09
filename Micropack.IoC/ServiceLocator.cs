@@ -1,7 +1,4 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Micropack.IoC;
+﻿namespace Micropack.IoC;
 
 public class ServiceLocator
 {

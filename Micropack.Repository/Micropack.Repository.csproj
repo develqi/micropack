@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Micropack.Domain.Abstraction\Micropack.Domain.Abstraction.csproj" />
+    <ProjectReference Include="..\Micropack.Domain.Abstraction\Micropack.Abstraction.csproj" />
   </ItemGroup>
 
 </Project>

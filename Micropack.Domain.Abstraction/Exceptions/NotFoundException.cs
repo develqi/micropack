@@ -1,9 +1,6 @@
-﻿using System;
+﻿namespace Micropack.Abstraction;
 
-namespace Micropack.Domain.Abstraction
+public class NotFoundException : Exception
 {
-    public class NotFoundException : Exception
-    {
-        public override string Message => "Not found object by the unique identity...!";
-    }
+    public override string Message => "Not found object by the unique identity...!";
 }

@@ -1,7 +1,6 @@
-﻿namespace Micropack.Domain.Abstraction
+﻿namespace Micropack.Abstraction;
+
+public interface IActivable
 {
-    public interface IActivable
-    {
-        bool IsActive { get; set; }
-    }
+    bool IsActive { get; set; }
 }
