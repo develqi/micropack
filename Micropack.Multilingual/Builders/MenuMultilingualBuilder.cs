@@ -8,7 +8,11 @@ public class MenuMultilingualBuilder : MultilingualBuilder<MultilingualMenu>
 
     public override MenuMultilingualBuilder? En(string en) => base.En(en) as MenuMultilingualBuilder;
 
-    public override MenuMultilingualBuilder? Order(byte order) => base.Order(order) as MenuMultilingualBuilder;
+    public MenuMultilingualBuilder? Order(byte order)
+    {
+        _item.Order = order;
+        return this;
+    }
 
     public void AddForms(Action<FormMultilingualBuilder> action)
     {
@@ -18,11 +22,11 @@ public class MenuMultilingualBuilder : MultilingualBuilder<MultilingualMenu>
         _item.Forms = formLocalizationFactory.Items.Cast<MultilingualForm>().ToList();
     }
 
-    public void AddSubMenus(Action<SubMenuMultilingualBuilder> action)
+    public void AddSubMenus(Action<SubmenuMultilingualBuilder> action)
     {
-        var subMenuLocalizationFactory = new SubMenuMultilingualBuilder();
+        var subMenuLocalizationFactory = new SubmenuMultilingualBuilder();
 
         action?.Invoke(subMenuLocalizationFactory);
-        _item.SubMenus = subMenuLocalizationFactory.Items.Cast<MultilingualSubMenu>().ToList();
+        _item.SubMenus = subMenuLocalizationFactory.Items.Cast<MultilingualSubmenu>().ToList();
     }
 }

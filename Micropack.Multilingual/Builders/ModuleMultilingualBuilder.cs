@@ -8,7 +8,11 @@ public class ModuleMultilingualBuilder : MultilingualBuilder<MultilingualModule>
 
     public override ModuleMultilingualBuilder? En(string en) => base.En(en) as ModuleMultilingualBuilder;
 
-    public override ModuleMultilingualBuilder? Order(byte order) => base.Order(order) as ModuleMultilingualBuilder;
+    public ModuleMultilingualBuilder? Order(byte order) 
+    {
+        _item.Order = order;
+        return this;
+    }
 
     public void AddMenus(Action<MenuMultilingualBuilder> action)
     {

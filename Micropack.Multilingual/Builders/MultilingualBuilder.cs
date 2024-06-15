@@ -47,12 +47,6 @@ public class MultilingualBuilder<TMultilingual> where TMultilingual : Multilingu
         return this;
     }
 
-    public virtual MultilingualBuilder<TMultilingual> Order(byte order)
-    {
-        //_item.Order = order;
-        return this;
-    }
-
     private bool Exist(string key) => _items.Any(item => item.Key.Equals(key, StringComparison.CurrentCultureIgnoreCase));
 
     private byte GetOrder() => (byte)(_items.Count + 1);

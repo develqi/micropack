@@ -11,6 +11,12 @@ public class FormMultilingualBuilder : MultilingualBuilder<MultilingualForm>
         _item.TabForms = tabFormLocalizationFactory.Items.Cast<MultilingualForm>().ToList();
     }
 
+    public FormMultilingualBuilder? Order(byte order)
+    {
+        _item.Order = order;
+        return this;
+    }
+
     public FormMultilingualBuilder AddFields(Action<FormFieldMultilingualBuilder> action)
     {
         var tabFormLocalizationFactory = new FormFieldMultilingualBuilder();

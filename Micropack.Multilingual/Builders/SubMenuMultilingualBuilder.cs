@@ -1,8 +1,8 @@
 ﻿namespace Micropack.Multilingual;
 
-public class SubMenuMultilingualBuilder : MultilingualBuilder<MultilingualSubMenu>
+public class SubmenuMultilingualBuilder : MultilingualBuilder<MultilingualSubmenu>
 {
-    public SubMenuMultilingualBuilder AddSubMenu(string key) => AddItem(key) as SubMenuMultilingualBuilder;
+    public SubmenuMultilingualBuilder AddSubMenu(string key) => AddItem(key) as SubmenuMultilingualBuilder;
 
     public void LocalizeForms(Action<FormMultilingualBuilder> action)
     {
@@ -12,7 +12,7 @@ public class SubMenuMultilingualBuilder : MultilingualBuilder<MultilingualSubMen
         _item.Forms = formLocalizationFactory.Items.Cast<MultilingualForm>().ToList();
     }
 
-    public override SubMenuMultilingualBuilder Fa(string fa) => base.Fa(fa) as SubMenuMultilingualBuilder;
+    public override SubmenuMultilingualBuilder Fa(string fa) => base.Fa(fa) as SubmenuMultilingualBuilder;
 
-    public override SubMenuMultilingualBuilder En(string en) => base.En(en) as SubMenuMultilingualBuilder;
+    public override SubmenuMultilingualBuilder En(string en) => base.En(en) as SubmenuMultilingualBuilder;
 }

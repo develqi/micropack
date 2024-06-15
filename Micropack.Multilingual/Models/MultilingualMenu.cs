@@ -10,5 +10,5 @@ public class MultilingualMenu : Multilingual
 
     public List<MultilingualForm> Forms { get; set; } = [];
 
-    public List<MultilingualSubMenu> SubMenus { get; set; } = [];
+    public List<MultilingualSubmenu> SubMenus { get; set; } = [];
 }

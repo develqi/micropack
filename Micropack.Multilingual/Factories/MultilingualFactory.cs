@@ -28,15 +28,3 @@ public class MultilingualFactory
 
     public Multilingual Create() => _multilingual;
 }
-
-public record class CaptionFactory(string Key, string Fa, string En = null)
-{
-    public Caption Create()
-    {
-        return new Caption
-        {
-            Language = "Fa",
-            Label = Fa
-        };
-    }
-}

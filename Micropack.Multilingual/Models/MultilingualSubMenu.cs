@@ -1,6 +1,6 @@
 ﻿namespace Micropack.Multilingual;
 
-public class MultilingualSubMenu : Multilingual
+public class MultilingualSubmenu : Multilingual
 {
     public int Id { get; set; }
 
